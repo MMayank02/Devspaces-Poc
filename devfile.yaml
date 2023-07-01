@@ -1,4 +1,4 @@
-schemaVersion: 2.1.0
+schemaVersion: 2.2.0
 metadata:
   name: python-hello-world
 components:
@@ -10,6 +10,7 @@ components:
           path: /home/user/.venv
       memoryLimit: 512Mi
       mountSources: true
+      command: ['tail']
 
   - name: venv
     volume:
