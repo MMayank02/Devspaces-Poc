@@ -15,15 +15,3 @@ commands:
       component: tools
       commandLine: |
           mkdir output;
-  - id: create-runner-secret
-    exec:
-      label: create secret
-      component: tools
-      commandLine: |
-          kubectl create secret generic gitlab-runner-secret1 --namespace mmayank02-dev --from-literal=runner-registration-token1=glrt-xsx_xzoh-ahssunbtx55         
-  - id: helm-runner-spin
-    exec:
-      label: "Runner creation"
-      component: tools
-      commandLine: |
-          helm install --namespace mmayank02-dev gitlab-runner1 -f values.yaml gitlab/gitlab-runner
