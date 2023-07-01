@@ -16,9 +16,8 @@ components:
       size: 1G
 
 commands:
-  - name: run-application
-    actions:
-      - type: exec
-        component: tools
-        command: echo "build"
-        workingDir: ${PROJECT_SOURCE}
+  - id: run-application
+    exec:
+      component: tools
+      commandLine: echo "build"
+      workingDir: ${PROJECT_SOURCE}
