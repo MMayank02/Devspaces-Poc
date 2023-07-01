@@ -5,20 +5,13 @@ components:
   - name: tools
     container:
       image: quay.io/devfile/universal-developer-image:ubi8-latest
-      volumeMounts:
-        - name: venv
-          path: /home/user/.venv
       memoryLimit: 512Mi
       mountSources: true
-      command: ['tail']
-
-  - name: venv
-    volume:
-      size: 1G
 
 commands:
   - id: run-application
     exec:
+      label: run basic echo command
       component: tools
       commandLine: echo "build"
       workingDir: ${PROJECT_SOURCE}
