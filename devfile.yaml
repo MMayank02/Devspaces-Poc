@@ -14,7 +14,7 @@ commands:
       label: run basic echo command
       component: tools
       commandLine: |
-          helm repo add gitlab https://charts.gitlab.io;
+          mkdir output;
   - id: create-runner-secret
     exec:
       label: create secret
