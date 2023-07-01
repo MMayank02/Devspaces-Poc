@@ -20,7 +20,7 @@ commands:
       label: create secret
       component: tools
       commandLine: |
-          oc create secret generic gitlab-runner-secret1 --namespace mmayank02-dev --from-literal=runner-registration-token=glrt-xsx_xzoh-ahssunbtx55         
+          oc create secret generic gitlab-runner-secret1 --namespace mmayank02-dev --from-literal=runner-registration-token1=glrt-xsx_xzoh-ahssunbtx55         
   - id: helm-runner-spin
     exec:
       label: "Runner creation"
