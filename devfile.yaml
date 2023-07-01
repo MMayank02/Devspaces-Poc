@@ -24,3 +24,28 @@ commands:
       commandLine: "python3 hello-world.py"
       group:
         kind: run
+  - id: add-helm-repo
+    exec:
+      label: "Add helm repo"
+      component: tools
+      workingDir: ${PROJECT_SOURCE}
+      commandLine: "helm repo add gitlab https://charts.gitlab.io"
+      group:
+        kind: run
+  - id: runner-registration-token
+    exec:
+      label: "Runner Registration"
+      component: tools
+      workingDir: ${PROJECT_SOURCE}
+      commandLine: "oc create secret generic gitlab-runner-secret1 --namespace mmayank02-dev --from-literal=runner-registration-token=glrt-xsx_xzoh-ahssunbtx55"
+      group:
+        kind: run
+  - id: helm-runner-spin
+    exec:
+      label: "Runner creation"
+      component: tools
+      workingDir: ${PROJECT_SOURCE}
+      commandLine: "helm install --namespace mmayank02-dev gitlab-runner1 -f values.yaml gitlab/gitlab-runner"
+      group:
+        kind: run
+      
