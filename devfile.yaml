@@ -14,4 +14,4 @@ commands:
       label: run basic echo command
       component: tools
       commandLine: |
-          mkdir output;
+          mkdir output
