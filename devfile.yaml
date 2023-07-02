@@ -14,7 +14,7 @@ components:
 commands:
 # The command which will add the Public Gitlab repo as Helm chart repo to Dev Workspace
   - id: add-helm-repo
-    apply:
+    exec:
       label: "Add helm repo"
       component: tools
       workingDir: ${PROJECT_SOURCE}
@@ -27,12 +27,9 @@ commands:
           kubectl create secret generic gitlab-runner-secret1 --namespace mmayank02-dev --from-literal=runner-registration-token1=glrt-xsx_xzoh-ahssunbtx55         
  # The command which will install the runner from the chart provided by Gitlab
   - id: helm-runner-spin
-    apply:
+    exec:
       label: "Runner creation"
       component: tools
       commandLine: |
           helm install --namespace mmayank02-dev gitlab-runner1 -f values.yaml gitlab/gitlab-runner
-events:
-  postStart:
-    - add-helm-repo
-    - helm-runner-spin
+
