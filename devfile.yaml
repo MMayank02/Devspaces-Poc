@@ -1,6 +1,8 @@
 schemaVersion: 2.2.0
+# Metadata about the Devspave
 metadata:
   name: AI-RTL-Demo
+# Adding a component named tools which will spin the container for Devspaces from a vanilla UDI image provided by RedHat with 2GB memory limits
 components:
   - name: tools
     container:
@@ -8,9 +10,11 @@ components:
       memoryLimit: 2Gi
       mountSources: true
 
+# The commands which will run as shell post the DevSpace creation for spinning up a runner via Helm chart
 commands:
+# The command which will add the Public Gitlab repo as Helm chart repo to Dev Workspace
   - id: add-helm-repo
-    exec:
+    apply:
       label: "Add helm repo"
       component: tools
       workingDir: ${PROJECT_SOURCE}
@@ -21,8 +25,9 @@ commands:
       component: tools
       commandLine: |
           kubectl create secret generic gitlab-runner-secret1 --namespace mmayank02-dev --from-literal=runner-registration-token1=glrt-xsx_xzoh-ahssunbtx55         
+ # The command which will install the runner from the chart provided by Gitlab
   - id: helm-runner-spin
-    exec:
+    apply:
       label: "Runner creation"
       component: tools
       commandLine: |
