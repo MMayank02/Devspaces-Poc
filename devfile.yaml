@@ -1,6 +1,6 @@
 schemaVersion: 2.2.0
 metadata:
-  name: python-hello-world
+  name: AI-RTL-Demo
 components:
   - name: tools
     container:
@@ -27,3 +27,7 @@ commands:
       component: tools
       commandLine: |
           helm install --namespace mmayank02-dev gitlab-runner1 -f values.yaml gitlab/gitlab-runner
+events:
+  postStart:
+    - add-helm-repo
+    - helm-runner-spin
