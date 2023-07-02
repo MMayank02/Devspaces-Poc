@@ -9,9 +9,21 @@ components:
       mountSources: true
 
 commands:
-  - id: run-application
+  - id: add-helm-repo
     exec:
-      label: run basic echo command
+      label: "Add helm repo"
+      component: tools
+      workingDir: ${PROJECT_SOURCE}
+      commandLine: "helm repo add gitlab https://charts.gitlab.io"
+  - id: create-runner-secret
+    exec:
+      label: create secret
       component: tools
       commandLine: |
-          mkdir output
+          kubectl create secret generic gitlab-runner-secret1 --namespace mmayank02-dev --from-literal=runner-registration-token1=glrt-xsx_xzoh-ahssunbtx55         
+  - id: helm-runner-spin
+    exec:
+      label: "Runner creation"
+      component: tools
+      commandLine: |
+          helm install --namespace mmayank02-dev gitlab-runner1 -f values.yaml gitlab/gitlab-runner
