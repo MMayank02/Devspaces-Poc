@@ -1,5 +1,11 @@
 # AIInt-poc
 
+Backstage Template GitLab Repo: https://gitlab.com/aakash1862/backstage-templates.git
+GitLab Repo: https://gitlab.com/backdevgit/aiint-poc.git
+
+Sandbox URL: https://devspaces.apps.sandbox-m3.1530.p1.openshiftapps.com/dashboard/#/workspaces
+
+GitLab Project(AIINT-POC) AT: glpat-mUJ4z7MQnX6yGPHVyGTR
 
 
 ## Getting started
