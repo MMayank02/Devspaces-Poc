@@ -53,3 +53,5 @@ POC in progress
 20. Show pipeline triggered in Gitlab
 21. Show CI/CD to showcase that pipeline is running and jobs status
 22. Finally show the Wiki Dashboard
+
+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
